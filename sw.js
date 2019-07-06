@@ -24,7 +24,7 @@ const cachedFiles = [
 ];
 
 
-//nstall
+//cache the files upon first run
 self.addEventListener('install', function(e) {
   e.waitUntil (
     caches.open('v1').then(function(cache) {
@@ -37,11 +37,12 @@ self.addEventListener('install', function(e) {
 self.addEventListener('fetch',function(e) {
   e.respondWith(
     caches.match(e.request).then(function(response) {
+      //if true request already exist within cache and return
       if(response) {
         console.log('Found ', e.request, ' in cache');
         return response;
       }
-      else {
+      else { //fetch the request but also add to cache
         console.log('could not find', e.request, ' in cache, FETCHING');
         return fetch(e.request)
         .then(function(response) {
