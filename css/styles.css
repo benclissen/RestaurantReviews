@@ -65,6 +65,8 @@ nav {
 }
 nav h1 {
   margin: auto;
+  width: 100%;
+  float: none;
 }
 nav h1 a {
   color: #fff;
@@ -72,6 +74,9 @@ nav h1 a {
   font-weight: 200;
   letter-spacing: 10px;
   text-transform: uppercase;
+}
+nav ul {
+  width:100%;
 }
 #breadcrumb {
   list-style: none;
@@ -241,7 +246,7 @@ nav h1 a {
   align-items: center;
   justify-content: center;
 }
-#reviews-container h2 {
+#reviews-container h3 {
   color: #f58500;
   font-size: 24pt;
   font-weight: 300;
